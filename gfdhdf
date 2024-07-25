@@ -1,0 +1,19 @@
+import http from '@ohos.net.http'
+import { User } from '../../entity/User'
+import { request } from '../../utils/httpUtils/Request'
+/**
+ * 用户相关数据请求
+ * @returns
+ */
+export function login(user: User){
+  return request('/user/user/login', http.RequestMethod.POST, user)
+}
+export class User{
+  phone: String
+  password: String
+ 
+  constructor(phone: String, password: String) {
+    this.phone = phone
+    this.password = password
+  }
+}
